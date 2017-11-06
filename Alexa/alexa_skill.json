@@ -1,0 +1,211 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "propertyList",
+        "values": [
+          {
+            "id": "3005",
+            "name": {
+              "value": "Parkview",
+              "synonyms": [
+                "Parkview Apartments",
+                "Parkview"
+              ]
+            }
+          },
+          {
+            "id": "3001",
+            "name": {
+              "value": "Autumn Ridge",
+              "synonyms": [
+                "Autumn Ridge Apartments",
+                "Autumn Ridge"
+              ]
+            }
+          },
+          {
+            "id": "3002",
+            "name": {
+              "value": "Regency Park",
+              "synonyms": [
+                "Regency Park Apartments",
+                "Regency Park"
+              ]
+            }
+          },
+          {
+            "id": "3003",
+            "name": {
+              "value": "Riverbend",
+              "synonyms": [
+                "Riverbend Apartments",
+                "river band",
+                "Riverbend"
+              ]
+            }
+          },
+          {
+            "id": "3004",
+            "name": {
+              "value": "Lincoln Square",
+              "synonyms": [
+                "Lincoln Square Apartments",
+                "Lincoln Square"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "getLocationIntent",
+        "samples": [
+          "get location for {selectedProperty}",
+          "Whats the address for {selectedProperty}",
+          "whats the location of {selectedProperty}"
+        ],
+        "slots": [
+          {
+            "name": "selectedProperty",
+            "type": "propertyList",
+            "samples": [
+              "{selectedProperty}"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getOccupancyIntent",
+        "samples": [
+          "get me occupancy for {selectedProperty} for {weekEnding}",
+          "what is the occupancy for {selectedProperty} for {weekEnding}",
+          "give me the occupancy for {selectedProperty} for {weekEnding}"
+        ],
+        "slots": [
+          {
+            "name": "selectedProperty",
+            "type": "propertyList",
+            "samples": [
+              "{selectedProperty}"
+            ]
+          },
+          {
+            "name": "weekEnding",
+            "type": "AMAZON.DATE",
+            "samples": [
+              "{weekEnding}"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getSummaryIntent",
+        "samples": [
+          "get summary for {selectedProperty} for {weekEnding}",
+          "whats the summary for {selectedProperty} for {weekEnding}",
+          "get me the summary for {selectedProperty} for {weekEnding}",
+          "whats the weekly summary for {selectedProperty} for {weekEnding}"
+        ],
+        "slots": [
+          {
+            "name": "selectedProperty",
+            "type": "propertyList"
+          },
+          {
+            "name": "weekEnding",
+            "type": "AMAZON.DATE"
+          }
+        ]
+      }
+    ],
+    "invocationName": "apartment occupancy"
+  },
+  "prompts": [
+    {
+      "id": "Elicit.Intent-getLocationIntent.IntentSlot-selectedProperty",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What property would you like he address for?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getOccupancyIntent.IntentSlot-selectedProperty",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Please select a property"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getOccupancyIntent.IntentSlot-weekEnding",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Please select a week ending date"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "getLocationIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "selectedProperty",
+            "type": "propertyList",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-getLocationIntent.IntentSlot-selectedProperty"
+            }
+          }
+        ]
+      },
+      {
+        "name": "getOccupancyIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "selectedProperty",
+            "type": "propertyList",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-getOccupancyIntent.IntentSlot-selectedProperty"
+            }
+          },
+          {
+            "name": "weekEnding",
+            "type": "AMAZON.DATE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-getOccupancyIntent.IntentSlot-weekEnding"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
