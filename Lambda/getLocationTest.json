@@ -1,0 +1,65 @@
+{
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.[unique-value-here]",
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.AF6WUFPAJHKW3JZNQDXG2HASPXPD2OHNE6AVRRVZY4LHYN2FXBTQDLEGYS2DEYFG6VMEVFE4MXJYE42TVMBB5L2TUVHBUKPAJ4XRSRBXTADT63LLNMYV66DDXED2DOGD2PQRTNZYFGDKGISXR7VYV46T6UUR3CU5VY4F2K42DWFBEUAJGE5L6TCOMI4PIHFQ2OSUF7UF3FXQFZI"
+    },
+    "application": {
+      "applicationId": "amzn1.ask.skill.837ab611-a770-44d3-9d67-91b72acd4b34"
+    }
+  },
+  "version": "1.0",
+  "request": {
+    "locale": "en-US",
+    "timestamp": "2017-10-27T21:06:28Z",
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.[unique-value-here]",
+    "intent": {
+      "slots": {
+        "selectedProperty": {
+          "name": "property",
+          "value": "Autumn Ridge",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.<skill_id>.propertyList",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "Autumn Ridge",
+                      "id": "3001"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "name": "getLocationIntent"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "System": {
+      "device": {
+        "supportedInterfaces": {
+          "AudioPlayer": {}
+        }
+      },
+      "application": {
+        "applicationId": "amzn1.ask.skill.837ab611-a770-44d3-9d67-91b72acd4b34"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.AF6WUFPAJHKW3JZNQDXG2HASPXPD2OHNE6AVRRVZY4LHYN2FXBTQDLEGYS2DEYFG6VMEVFE4MXJYE42TVMBB5L2TUVHBUKPAJ4XRSRBXTADT63LLNMYV66DDXED2DOGD2PQRTNZYFGDKGISXR7VYV46T6UUR3CU5VY4F2K42DWFBEUAJGE5L6TCOMI4PIHFQ2OSUF7UF3FXQFZI"
+      }
+    }
+  }
+}
